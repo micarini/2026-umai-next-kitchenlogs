@@ -15,21 +15,21 @@ const Navbar = () => {
 
   return (
     <header
-      className={`flex items-center justify-between gap-4 rounded-full px-5 py-3 ${
-        theme === "light" ? "bg-[#f7edcc] text-[#101010]" : "bg-[#2a3223] text-[#f3ecd3]"
+      className={`navbar ${
+        theme === "light" ? "navbar--light" : "navbar--dark"
       }`}
     >
-      <Link href="/" className="[font-family:var(--font-fraunces)] text-[1.65rem] leading-none">
+      <Link href="/" className="navbar-logo">
         {logoName}
       </Link>
 
-      <nav className="hidden flex-1 md:block">
-        <ul className="flex items-center justify-center gap-8">
+      <nav className="navbar-nav">
+        <ul className="navbar-list">
           {items.map((item) => (
             <li key={item.id}>
               <Link
                 href={item.link}
-                className="[font-family:var(--font-dm-sans)] text-[0.85rem] font-bold uppercase tracking-[0.06em] transition-colors hover:text-[#d66b36]"
+                className="navbar-link"
               >
                 {item.name}
               </Link>
@@ -38,18 +38,18 @@ const Navbar = () => {
         </ul>
       </nav>
 
-      <div className="flex items-center gap-2">
-        <button className="rounded-full border-2 border-(--foreground) px-3 py-1.5 [font-family:var(--font-dm-sans)] text-[0.75rem] font-bold uppercase tracking-[0.05em] transition hover:-translate-y-0.5 hover:bg-(--foreground) hover:text-(--surface)">
+      <div className="navbar-actions">
+        <button className="navbar-btn">
           Login
         </button>
 
-        <button className="rounded-full border-2 border-(--foreground) px-3 py-1.5 [font-family:var(--font-dm-sans)] text-[0.75rem] font-bold uppercase tracking-[0.05em] transition hover:-translate-y-0.5 hover:bg-(--foreground) hover:text-(--surface)">
+        <button className="navbar-btn">
           Sign up
         </button>
 
         <button
           onClick={handleColor}
-          className="rounded-full border-2 border-(--foreground) px-3 py-1.5 [font-family:var(--font-dm-sans)] text-[0.75rem] font-bold uppercase tracking-[0.05em] transition hover:-translate-y-0.5 hover:bg-(--foreground) hover:text-(--surface)"
+          className="navbar-btn"
         >
           {theme === "light" ? "Dark" : "Light"}
         </button>

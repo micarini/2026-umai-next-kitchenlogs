@@ -1,5 +1,5 @@
 const AboutContainer = () => {
-  return <main className="min-h-screen bg-[#f7edcc]" />;
+  return <main className="about-main" />;
 };
 
 export default AboutContainer;

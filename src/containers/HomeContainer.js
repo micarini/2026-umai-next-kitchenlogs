@@ -11,16 +11,32 @@ import axios from 'axios';
 
 const HomeContainer = () => {
 
-  const [items, setItems] = useState([]); /*dejo un array vacio para los items */
+  const [items, setItems] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
+  const [errorMsg, setErrorMsg] = useState('');
 
   const handleGetItems = async () => {
     try {
+      setLoading(true);
+      setError(false);
+      setErrorMsg('');
+
       const response = await axios.get('https://dummyjson.com/recipes?limit=0');
-      const data = response.data.recipes; /*recipes es el nombre del array en el json, puede ser otra cosa */
-      console.log(data);
+      const data = (response.data.recipes || []).map((recipe) => ({
+        name: recipe.name,
+        image: recipe.image,
+        time: `${recipe.prepTimeMinutes ?? 0} MIN`,
+        level: recipe.difficulty ?? 'EASY',
+      }));
+
       setItems(data);
     } catch (error) {
       console.log('Hubo un error', error);
+      setError(true);
+      setErrorMsg('Hubo un error al cargar las recetas. Mostrando recetas locales.');
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -29,17 +45,16 @@ const HomeContainer = () => {
   }, []);
 
   return (
-    <div
-      className="min-h-screen"
-      style={{ background: "var(--background)", color: "var(--foreground)" }}
-    >
-      <section className="bg-[#93a74d] p-4">
+    <div className="app-shell">
+      <section className="top-section">
         <Navbar />
         <Hero />
       </section>
 
-      <main className="px-3 pb-8 pt-10 md:px-5">
-        <CardsGrid items={items.length ? items : recipes} /*items es una prop que viene desde CardsGrid*/ />
+      <main className="content-main">
+        {loading && <div className="status-message">Loading...</div>}
+        {error && <div className="status-message error">{errorMsg}</div>}
+        {!loading && <CardsGrid items={items.length ? items : recipes} />}
       </main>
 
       
