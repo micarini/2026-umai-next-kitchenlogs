@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f7edcc;
+  --foreground: #101010;
+  --surface: #f7edcc;
+  --top-bg: #93a74d;
+  --card-bg: #fdf4de;
+  --card-media-bg: #d1c8a8;
+}
+
+:root.dark {
+  --background: #1a1f1d;
+  --foreground: #f3ecd3;
+  --surface: #2a3223;
+  --top-bg: #3e4e28;
+  --card-bg: #2c3428;
+  --card-media-bg: #3d4b34;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-roboto), sans-serif;
+}
