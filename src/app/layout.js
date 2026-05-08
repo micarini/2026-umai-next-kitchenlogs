@@ -36,8 +36,10 @@ export default function RootLayout({ children }) {
     <html lang="en"
       className={`${dmSans.variable} ${fraunces.variable} ${oswald.variable} ${roboto.variable} layout-html`}
     >
-      <body className="layout-body">{children}</body>
-      <Footer />
+      <body className="layout-body">
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }
