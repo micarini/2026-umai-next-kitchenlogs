@@ -1,3 +1,8 @@
+- Use mas que nada IA para aprender el tema de tailwind, habia cosas puntuales que queria ir modificando que buscaba en internet pero sino para bastantes partes le pase mi styles.css del tp anterior y le pedi que me pase el equivalente de cada clase en tailwind
+- Tambien lo use para arreglar problemas con vercel (tenia un error 404) y temas de github de mergear branch a main y asi
+- Cuando me aparecian errores abajo se los mandaba y le preguntaba como solucionarlo
+- Y para el RecipeRequestState osea para centralizar el error
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
