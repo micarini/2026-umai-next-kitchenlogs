@@ -1,5 +1,5 @@
 'use client'
-import { Image } from 'react-native'
+import Image from 'next/image'
 
 const Hero = () => {
     return (
@@ -15,8 +15,8 @@ const Hero = () => {
             </p>
           </div>
 
-          <div className="overflow-hidden rounded-3xl p-2">
-            <Image src="/hero-img.jpg" style={{ width: '100%', height: '100%' }} alt="Breakfast Table" className="h-full w-full rounded-3xl object-cover" />
+          <div className="relative overflow-hidden rounded-3xl p-2">
+            <Image src="/hero-img.jpg" alt="Breakfast Table" width={500} height={500} className="rounded-3xl object-cover w-full h-full" />
           </div>
         </header>
     )
