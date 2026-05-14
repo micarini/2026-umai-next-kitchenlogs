@@ -1,6 +1,6 @@
 import { DM_Sans, Fraunces, Oswald, Roboto } from "next/font/google";
-import Footer from "@/components/Footer";
 import "./globals.css";
+import Footer from "@/components/Footer";
 
 const dmSans = DM_Sans({
   variable: "--font-dm-sans",
@@ -34,10 +34,12 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en"
-      className={`${dmSans.variable} ${fraunces.variable} ${oswald.variable} ${roboto.variable} layout-html`}
+      className={`${dmSans.variable} ${fraunces.variable} ${oswald.variable} ${roboto.variable} h-full antialiased`}
     >
-      <body className="layout-body">{children}</body>
-      <Footer />
+      <body className="min-h-full flex flex-col">
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }
